@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        
+        if (str.length() <= 5) {
+            System.out.println("Invalid Input");
+            return;
+        }
+        
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+        
+        int[] count = new int[256];
+        for (int i = 0; i < chars.length; i++) {
+            count[chars[i]]++;
+        }
+        
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] > 0) {
+                System.out.print((char)i + "" + count[i]);
+            }
+        }
+    }
+}
